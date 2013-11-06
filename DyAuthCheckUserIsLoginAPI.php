@@ -10,6 +10,7 @@ require_once('getPhoneNumber.php');
 session_start();
 $user_name=$_GET['user_name'];	
 $domain=$_GET['domain'];
+$DyAuth_key=$_GET['DyAuth_key'];
 //connect
 $con=mysql_connect($db_host,$db_user,$db_pass) OR die('cannot connect!'.mysql_error());
 if(!$con)
@@ -27,7 +28,7 @@ if(0==$phone_num) {
 	die();
 }
 
-$sql = "SELECT A.answer_id FROM answer_info A ,user_info U WHERE U.phone_num = '$phone_num' AND A.user_id = U.user_id AND A.login_flag = 0 AND A.correctness = 1 AND UNIX_TIMESTAMP(A.time) >= ".(time()-60);
+$sql = "SELECT A.answer_id FROM answer_info A ,user_info U WHERE U.phone_num = '$phone_num' AND A.user_id = U.user_id AND A.login_flag = 0 AND A.correctness = 1 AND A.login_key = '$DyAuth_key' AND UNIX_TIMESTAMP(A.time) >= ".(time()-60);
 $result = mysql_query($sql);
 if(mysql_num_rows($result)>0) {
 	$answer_id = mysql_fetch_row($result)[0];

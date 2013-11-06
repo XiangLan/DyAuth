@@ -16,12 +16,19 @@
 
 	$phone_num = getPhone_num($domain,$user_name);
 
-	if(0==$phone_num) 
-		echo "-1";
+	$ret = array();
+
+	if(0==$phone_num){
+		$ret["pass"] = 0;
+		$ret["key"] = 0;
+	}
 	else {
 		$_SESSION["phone_num"] = $phone_num;
 		$_SESSION["domain"] = $domain;
-		echo "1";
+		$_SESSION["key"] = rand(1 , 999999);
+		$ret["pass"] = 1;
+		$ret["key"] = $_SESSION["key"];
 	}
+	echo json_encode($ret);
 	mysql_close($con);
 ?>

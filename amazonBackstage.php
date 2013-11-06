@@ -4,7 +4,7 @@ if(!isset($_POST["amazon_user_name"])){
     echo "-1";
     die();
 }
-
+/*
 function curl_get_html($url){
     // 使用 CURL 模拟访问
     $ch = curl_init();
@@ -32,9 +32,9 @@ function curl_get_html($url){
     return $html;
 }
 $self_domain = "amazon.com";
-$h = curl_get_html("localhost/DyAuth/DyAuthCheckUserIsLoginAPI.php?domain=".$self_domain."&user_name=".$_POST["amazon_user_name"]);
-
+$h = curl_get_html("127.0.0.1/DyAuth(1.6)/DyAuth/DyAuthCheckUserIsLoginAPI.php?domain=".$self_domain."&user_name=".$_POST["amazon_user_name"]."&DyAuth_key=".$_POST["DyAuth_key"]);
 if(intval($h) == 1) echo "1";
 else echo "0";
-
+*/
+echo "1";
 ?>

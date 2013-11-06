@@ -10,6 +10,8 @@
 	$phone_num = $_SESSION["phone_num"];
 	$domain = $_SESSION["domain"];
 	$answer=$_POST['answer'];
+	$login_key=$_SESSION['key'];
+	unset($_SESSION['key']);
 	$correctness = false;
 	//connect
 	$con=mysql_connect($db_host,$db_user,$db_pass) OR die('cannot connect!'.mysql_error());
@@ -41,7 +43,7 @@
 			$json_answer['correctness']=false;
 			echo json_encode($json_answer);
 		}	
-		$sql="INSERT INTO answer_info (third_party_name,question_id,user_id,answer_content,correct_answer,correctness) VALUES ('$domain','$question_id','$user_id','$answer','$correct_answer','$correctness')";
+		$sql="INSERT INTO answer_info (third_party_name,question_id,user_id,answer_content,correct_answer,correctness,login_key) VALUES ('$domain','$question_id','$user_id','$answer','$correct_answer','$correctness','$login_key')";
 		mysql_query($sql);
 	}else{
 		echo '-1';
