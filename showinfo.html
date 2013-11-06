@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Device Information</title>
+	<link href="css/bootstrap.css" rel="stylesheet" media="screen" />
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<style>
+	html,body{height:100%}
+	body{
+		background: -webkit-linear-gradient( top,#2f3034,#000);
+		color: whiteSmoke;
+		font-size:16px;
+	}
+	a,a:hover{color:#898d90;}
+	h1{
+		margin:0;
+		padding:30px;
+	}
+	.tabs-left > .nav-tabs > li{
+		height:60px;
+		padding-top:25px;
+
+	}
+	.tabs-left > .nav-tabs > li a{
+		height:30px;
+		font-size:20px;
+		padding-top: 10px;
+		text-align:right;
+		line-height: 30px;
+	}
+	
+	.tabs-left > .nav-tabs > li > a:hover, .tabs-left > .nav-tabs > li > a:focus, .tabs-left > .nav-tabs .active > a, .tabs-left > .nav-tabs .active > a:hover, .tabs-left > .nav-tabs .active > a:focus{
+		background-color:whiteSmoke;
+		border:none;
+	}
+	::-webkit-scrollbar-track-piece {
+		background-color:#f5f5f5;
+		border-left:1px solid #d2d2d2;
+		border-radius:10px;
+	}
+	::-webkit-scrollbar {
+		width:6px;
+		height:6px;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color:#898d90;
+		background-clip:padding-box;
+		border:1px solid #979797;
+		min-height:28px;
+		border-radius:10px;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background-color:#000000;
+	}
+	table{margin-left:20px;}
+	tr{height:30px;}
+	td{min-width:120px;}
+	</style>
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+</head>
+<body>
+	<div>
+		<h1 style="text-align:center;font-size:80px;line-height:150px;">DyAuth</h1>
+	</div>
+	<div class="container">
+		<div class="tabbable tabs-left">
+			<ul class="nav nav-tabs" style="margin-right: 0;border: none;">
+				<li class="active"><a href="#cpu" data-toggle="tab">CPU Information</a></li>
+				<li><a href="#memory" data-toggle="tab">Memory Information</a></li>
+				<li><a href="#process" data-toggle="tab">Process Information</a></li>
+				<li><a href="#question" data-toggle="tab">Answered Questions</a></li>
+			</ul>
+			<div class="tab-content" id="container" style="border: 1px solid white;height: 360px;border-radius: 5px;padding: 15px;background-color:whiteSmoke;color:black;font-size:18px;">
+				<div class="tab-pane active" id="cpu">
+					<table class="talbe">
+						<tbody>
+							<tr>
+								<td>Processor</td>
+								<td>: ARMv7 Processor rev 1</td>
+							</tr>
+							<tr>
+								<td>BogoMIPS</td>
+								<td>: 668.86</td>
+							</tr>
+							<tr>
+								<td>Features</td>
+								<td>: mei kan dong shi sha</td>
+							</tr>
+							<tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr>
+							<tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr>
+							<tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr>
+							<tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr>
+							<tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr>
+							<tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr><tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr><tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr>
+							<tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr><tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr><tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr><tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr><tr>
+								<td>Processor</td>
+								<td>ARMv7 Processor rev 1</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="tab-pane" id="memory">
+					<p>Howdy, I'm in Section B.</p>
+				</div>
+				<div class="tab-pane" id="process">
+					<p>What up girl, this is Section C.</p>
+				</div>
+				<div class="tab-pane" id="question">
+					<p>What up girl, this is Section D.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

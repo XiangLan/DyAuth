@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<link href="css/bootstrap.css" rel="stylesheet" media="screen" />
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/DyAuth.js"></script>
+	<script src="js/DyAuthLogin.js"></script>
+	<style>
+	html,body{height:100%}
+	body{
+		background: -webkit-linear-gradient( top,#2f3034,#000);
+		color: whiteSmoke;
+		font-size:16px;
+	}
+	a,a:hover{color:#898d90;}
+	input::-webkit-input-placeholder{color:#aaaaaa;}
+	input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{
+		background-color:#78797d;
+		border:none;
+		font-size:16px;
+		color:whiteSmoke;
+	}
+	#block-q,#block-a{
+		display:none;
+	}
+	label{
+		cursor:default;
+		font-size:16px;
+	}
+	label a{
+		cursor:pointer;
+	}
+	form{
+		background: -webkit-linear-gradient( top,#555555,#1a1a1a);
+		width:500px;
+		margin:0 auto;
+		padding:20px;
+		border:3px solid #898d90;
+		border-radius:20px;
+		
+	}
+	h1{
+		margin:0;
+		padding:30px;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<h1 style="text-align:center;font-size:80px;line-height:150px;">DyAuth</h1>
+	</div>
+	<div class="container">
+		<form class="form-horizontal">
+			<div class="control-group">
+				<label class="control-label" for="inputTel">Tel number:</label>
+				<div class="controls">
+					<input type="text" id="inputTel" placeholder="Tel number">
+				</div>
+				<p id="notExist" style="color:red"></p>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="inputPassword">Password:</label>
+				<div class="controls">
+					<input type="password" id="inputPassword" placeholder="Password">
+				</div>
+			</div>
+			
+			<div class="control-group" id="block-q">
+				<label class="control-label" for="question">Question:</label>
+				<div class="controls" style="padding-top:5px;">
+					<b id="question" title="click to change a question..."></b>
+				</div>
+			</div>
+			<div class="control-group" id="block-a">
+				<label class="control-label" for="answer">Your answer:</label>
+				<div class="controls" id="answer-control">
+					<input type="text" id="answer" placeholder="Answer here...">
+				</div>
+				
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<input type="button" class="btn btn-inverse" id="signIn" value="Sign in" style="width:220px;border:2px solid #898d90;">
+					<div style="line-height:30px;">
+						<a href="#" class="" style="float:right;margin-right:100px;" id = "signUp">Sign up</a>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

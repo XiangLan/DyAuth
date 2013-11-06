@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mobile Info</title>
+<script>
+var watch;
+function getUserId(){
+	return document.getElementById("userId").value;
+}
+function getAnswer(){
+	return document.getElementById("answer").value;
+}
+function sendAnswer(){
+	var url = "saveUserAnswer.php";//此处应该写成文件在服务器的url
+	var answer = getAnswer();
+	var xmlHttp;
+	if(window.ActiveXObject){
+		xmlHttp = new ActiveXObject("Microsoft.XMLHttp");
+	}else if(window.XMLHttpRequest){
+		xmlHttp = new XMLHttpRequest();
+	}
+	var param = "user_id="+getUserId()+"&answer="+answer;
+	xmlHttp.onreadystatechange = function(){
+		if(xmlHttp.readyState == 4){
+			if(xmlHttp.status == 200){
+				var response = xmlHttp.responseText;
+				console.log(response);
+				showResult(response);
+			}
+		}
+	}
+	xmlHttp.open("POST",url);
+	xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	xmlHttp.send(param);
+}
+function queryQuestion(){
+	var url = "userRequireQuestion.php";//此处应该写成文件在服务器的url
+	var userId = getUserId();
+	var xmlHttp;
+	if(window.ActiveXObject){
+		xmlHttp = new ActiveXObject("Microsoft.XMLHttp");
+	}else if(window.XMLHttpRequest){
+		xmlHttp = new XMLHttpRequest();
+	}
+	var param = "user_id="+userId;
+	xmlHttp.onreadystatechange = function(){
+		if(xmlHttp.readyState == 4){
+			if(xmlHttp.status == 200){
+				var response = xmlHttp.responseText;
+				console.log(response);
+				getUserAnswer(response);
+			}
+		}
+	}
+	xmlHttp.open("POST",url);
+	xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	xmlHttp.send(param);
+}
+function showResult (data) {
+	var result = eval("(" + data + ")");
+	if(result["ok"]==1){
+		document.getElementById('questionArea').innerHTML="";
+		alert("update a question successfully!");
+	}
+	else
+		alert("err");
+}
+function getUserAnswer(data) {
+	var question = eval("(" + data + ")");
+	if(question["isQuestion"]==1){
+		document.getElementById("questionArea").innerHTML=question["question_content"];
+	}
+}
+</script>
+</head>
+<body>
+<p>userId</p><input type="text" id="userId"></br>
+<p id="questionArea"></p></br>
+<p>answer</p><input type="text" id="answer"></br>
+
+<input type="button" value="queryQuestion" onclick="queryQuestion();"/><br>
+<input type="button" value="sendAnswer" onclick = "sendAnswer();"/><br>
+</body>
+</html>
