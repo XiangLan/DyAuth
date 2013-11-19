@@ -11,7 +11,7 @@
 	$domain = $_SESSION["domain"];
 	$answer=$_POST['answer'];
 	$login_key=$_SESSION['key'];
-	unset($_SESSION['key']);
+	//unset($_SESSION['key']);
 	$correctness = false;
 	//connect
 	$con=mysql_connect($db_host,$db_user,$db_pass) OR die('cannot connect!'.mysql_error());

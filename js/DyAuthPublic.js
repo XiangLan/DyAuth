@@ -15,6 +15,7 @@ var auth={
 	check:function (domain , user_name) {
 		if(user_name=="") return;
 		$.post('checkUser.php', { domain: domain , user_name: user_name }, function(data, textStatus, xhr) {
+			console.log(data);
 			ret = eval("("+ data +")");
 			if(!ret) return;
 			if(ret["pass"]==1) {
